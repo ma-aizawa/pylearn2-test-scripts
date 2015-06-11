@@ -21,7 +21,11 @@ int main () {
       for (int x = 0; x < input->width; x++) {
         uchar pixelValue = 0;
         pixelValue = (uchar)input->imageData[y * input->width + x];
-        fprintf(fp, ",%d", (int)pixelValue);
+        if (x == 0 && y == 0) {
+          fprintf(fp, "%d", (int)pixelValue);
+        } else {
+          fprintf(fp, ",%d", (int)pixelValue);
+        }
       }
     }
     fprintf(fp, "\n");
